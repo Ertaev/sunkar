@@ -1,26 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Header :navLinks="navLinks" />
+
+  <router-view />
+
+  <Footer :navLinks="navLinks" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "@/layout/Header.vue"
+import Footer from "@/layout/Footer.vue"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header, Footer
+  },
+  data() {
+    return {
+      navLinks: [
+        {
+          path: "/about",
+          title: "О компании"
+        },
+        {
+          path: "/",
+          title: "Заемщику"
+        },
+        {
+          path: "/",
+          title: "Контакты",
+          dropDownList: [
+            {
+              path: "/",
+              title: "Кредитные товарищества"
+            }
+          ]
+        },
+      ]
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
 </style>
