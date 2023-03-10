@@ -5,25 +5,11 @@
     </div>
 
     <ul class="menu__list">
-      <li
-        class="menu__item"
-        v-for="navLink of navLinks"
-        :class="{ dropdown: navLink.dropDownList }"
-      >
-        <router-link :to="navLink.path" class="menu__link">
-          {{ navLink.title }}
-        </router-link>
-
-        <div v-if="navLink.dropDownList" class="dropdown-wrapper">
-          <ul>
-            <li v-for="dropDownItem of navLink.dropDownList">
-              <router-link :to="dropDownItem.path">
-                {{ dropDownItem.title }}
-              </router-link>
-            </li>
-          </ul>
-        </div>
-      </li>
+      <MenuItem
+        v-for="(navLink, index) of navLinks"
+        :key="index"
+        :navLink="navLink"
+      />
     </ul>
 
     <div class="menu__search">
@@ -37,8 +23,11 @@
 </template>
 
 <script>
+import MenuItem from "./MenuItem.vue";
+
 export default {
   props: ["navLinks"],
+  components: { MenuItem },
 };
 </script>
 
@@ -90,42 +79,11 @@ export default {
 
   .dropdown {
     position: relative;
-
-    &-wrapper {
-      position: absolute;
-      opacity: 0;
-      visibility: hidden;
-      right: 0;
-      top: 10px;
-      transform: translateY(5px);
-      transition: all 0.3s ease;
-
-      ul {
-        background: #fff;
-        border-radius: 8px;
-        padding: 14px 0;
-        width: max-content;
-        box-shadow: 3px 10px 30px rgb(35 79 191 / 15%);
-        transform: translateY(10px);
-        transition: all 0.3s ease;
-        margin-top: 25px;
-      }
-
-      li a {
-        color: #333;
-        display: block;
-        padding: 12px 24px;
-
-        &:hover {
-          color: #000;
-        }
-      }
-    }
   }
 
   &__search {
     margin-left: auto;
-    
+
     &:hover {
       color: #cecece;
     }

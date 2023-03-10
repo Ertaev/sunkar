@@ -2,33 +2,47 @@
   <div class="steps">
     <div class="container">
       <h2> КАК МЫ РАБОТАЕМ? </h2>
-      <!-- <p>Все просто! 3 шага для того чтобы получить кредит</p> -->
 
       <div class="steps-list">
-        <div class="steps-item">
-          <p class="subtitle">шаг 1</p>
-          <h4 class="title">ЗАЯВКА</h4>
+        <div 
+          v-for="step in steps"
+          class="steps-item"
+        >
+          <p class="subtitle">шаг {{ step.index }}</p>
+          <h4 class="title"> {{ step.title }} </h4>
 
-          <p class="desc">Вы оставляете заявку на кредитование с суммой открываемой КЛ</p>
-        </div>
-
-        <div class="steps-item">
-          <p class="subtitle">шаг 2</p>
-          <h4 class="title">СБОР ДОКУМЕНТОВ</h4>
-
-          <p class="desc">Собираете весь перечень необходимой документации.</p>
-        </div>
-
-        <div class="steps-item">
-          <p class="subtitle">шаг 3</p>
-          <h4 class="title">РЕГИСТРАЦИИ ДОГОВОРОВ В УПОЛНОМОЧЕННОМ ОРГАНЕ</h4>
-
-          <p class="desc">Регистрируйте договора залога.</p>
+          <p class="desc"> {{ step.desc }} </p>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      steps: [
+        {
+          index: 1,
+          title: "ЗАЯВКА",
+          desc: "Вы оставляете заявку на кредитование с суммой открываемой КЛ",
+        },
+        {
+          index: 2,
+          title: "СБОР ДОКУМЕНТОВ",
+          desc: "Собираете весь перечень необходимой документации.",
+        },
+        {
+          index: 3,
+          title: "РЕГИСТРАЦИИ ДОГОВОРОВ В УПОЛНОМОЧЕННОМ ОРГАНЕ",
+          desc: "Регистрируйте договора залога.",
+        },
+      ]
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 .steps {

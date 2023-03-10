@@ -1,7 +1,9 @@
 <template>
   <Header :navLinks="navLinks" />
 
-  <router-view />
+  <main>
+    <router-view />
+  </main>
 
   <Footer :navLinks="navLinks" />
 </template>

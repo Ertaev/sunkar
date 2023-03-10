@@ -6,33 +6,18 @@
       </h2>
 
       <div class="programs-list">
-        <router-link to="#" class="programs-item">
+        <router-link 
+          v-for="program in programs"
+          :key="program.id"
+          :to="program.path" 
+          class="programs-item"
+        >
           <div class="programs-img">
-            <img src="@/assets/images/dala.png" alt="КЕҢ ДАЛА">
+            <img :src="program.img" :alt="program.title">
           </div>
 
           <p class="programs-title">
-            КЕҢ ДАЛА
-          </p>
-        </router-link>
-
-        <router-link to="#" class="programs-item">
-          <div class="programs-img">
-            <img src="@/assets/images/agro.png" alt="агробизнес">
-          </div>
-
-          <p class="programs-title">
-            агробизнес
-          </p>
-        </router-link>
-
-        <router-link to="#" class="programs-item">
-          <div class="programs-img">
-            <img src="@/assets/images/isker.png" alt="Іскер">
-          </div>
-
-          <p class="programs-title">
-            Іскер
+            {{ program.title }}
           </p>
         </router-link>
       </div>
@@ -42,7 +27,30 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      programs: [
+        {
+          id: 1,
+          path: "/",
+          title: "КЕҢ ДАЛА",
+          img: "/img/dala.1ea150e2.png",
+        },
+        {
+          id: 2,
+          path: "/",
+          title: "агробизнес",
+          img: "/img/agro.87b83c4b.png",
+        },
+        {
+          id: 3,
+          path: "/",
+          title: "Іскер",
+          img: "/img/isker.8c34c7fb.png",
+        },
+      ]
+    }
+  }
 }
 </script>
 
