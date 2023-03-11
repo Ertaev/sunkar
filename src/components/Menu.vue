@@ -4,7 +4,7 @@
       <p>5353</p>
     </div>
 
-    <ul class="menu__list">
+    <ul class="menu__list" :class="{ menu__open: isActive }">
       <MenuItem
         v-for="(navLink, index) of navLinks"
         :key="index"
@@ -12,13 +12,19 @@
       />
     </ul>
 
-    <div class="menu__search">
+    <router-link to="/" class="menu__search">
       <i class="fa fa-search"></i>
-    </div>
+    </router-link>
 
     <div class="menu__lang">
       <p>RU</p>
     </div>
+
+    <div
+      class="burger"
+      :class="{ burger__close: isActive }"
+      @click="openModal"
+    ></div>
   </nav>
 </template>
 
@@ -28,6 +34,17 @@ import MenuItem from "./MenuItem.vue";
 export default {
   props: ["navLinks"],
   components: { MenuItem },
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+  methods: {
+    openModal() {
+      console.log("click");
+      this.isActive = !this.isActive;
+    },
+  },
 };
 </script>
 
@@ -37,10 +54,8 @@ export default {
   align-items: center;
   gap: 20px;
 
-  // & > *:not(:nth-child(2)) {
   & > * {
     color: #fff;
-    cursor: pointer;
   }
 
   &__phone {
@@ -59,39 +74,103 @@ export default {
     display: flex;
     align-items: center;
     gap: 20px;
-  }
 
-  &__item {
-    &:hover {
-      color: #cecece;
+    @media screen and (max-width: 768px) {
+      position: absolute;
+      top: -300vh;
+      width: 100%;
+      height: 100vh;
+      gap: 40px;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(25px);
+      transition: all 0.5s ease;
+      overflow: auto;
+      z-index: 10;
     }
-    &:hover .dropdown-wrapper {
-      visibility: visible;
-      opacity: 1;
-      z-index: 1;
-      transform: translateY(0);
+  }
+
+  &__open {
+    @media screen and (max-width: 768px) {
+      top: 0;
     }
-  }
-
-  &__link {
-    font-size: 18px;
-  }
-
-  .dropdown {
-    position: relative;
   }
 
   &__search {
+    position: relative;
+    z-index: 11;
+    color: #fff !important;
     margin-left: auto;
 
     &:hover {
       color: #cecece;
     }
   }
+
   &__lang {
+    position: relative;
+    z-index: 11;
+    cursor: pointer;
+
     &:hover {
       color: #cecece;
     }
+  }
+}
+
+.burger {
+  position: relative;
+  display: none;
+  width: 30px;
+  height: 20px;
+  background: transparent;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: #fff;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+  }
+
+  &__close {
+    position: relative;
+    z-index: 11;
+    border: none;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      background: #fff;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 0.3s ease;
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
   }
 }
 </style>

@@ -1,7 +1,12 @@
 <template>
   <div class="about">
     <div class="container about__container">
-      <div class="left">
+      <div
+        class="left"
+        data-aos="fade-right"
+        data-aos-delay="200"
+        data-aos-duration="1000"
+      >
         <h2>О компании</h2>
 
         <p>
@@ -16,8 +21,13 @@
         </p>
       </div>
 
-      <div class="right">
-        <img src="@/assets/images/1.png" alt="about">
+      <div
+        class="right"
+        data-aos="fade-left"
+        data-aos-delay="200"
+        data-aos-duration="1000"
+      >
+        <img src="@/assets/images/1.png" alt="about" />
       </div>
     </div>
   </div>
@@ -32,14 +42,26 @@
     align-items: center;
     justify-content: space-between;
     gap: 30px;
+    
+    @media screen and (max-width: 992px) {
+      flex-direction: column;
+    }
   }
-  
+
   .left {
     width: 50%;
+
+    @media screen and (max-width: 992px) {
+      width: 100%;
+    }
   }
 
   .right {
     width: 50%;
+
+    @media screen and (max-width: 992px) {
+      width: 100%;
+    }
   }
 }
 </style>

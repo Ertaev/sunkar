@@ -1,7 +1,13 @@
 <template>
   <div class="header-section">
     <div class="header-bg">
-      <video autoplay="" muted="" loop="" playsinline="">
+      <video
+        autoplay=""
+        muted=""
+        loop=""
+        playsinline=""
+        poster="@/assets/images/7.jpg"
+      >
         <!-- <source src="@/assets/video/video-bg.mp4" type="video/mp4;"> -->
         <source src="@/assets/video/abg.mp4" type="video/mp4;" />
       </video>
@@ -9,19 +15,35 @@
 
     <div class="container">
       <div class="header-content">
-        <h1 class="title">Развиваем агробизнес вместе!</h1>
-        <p class="subtitle">
+        <h1
+          class="title"
+          data-aos="fade-right"
+          data-aos-delay="200"
+          data-aos-duration="1000"
+        >
+          Развиваем агробизнес вместе!
+        </h1>
+        <p
+          class="subtitle"
+          data-aos="fade-right"
+          data-aos-delay="200"
+          data-aos-duration="1000"
+        >
           содействие устойчивому развитию агропромышленного комплекса Республики
           Казахстан путем формирования доступной и эффективной системы
           финансирования
         </p>
 
         <div class="options">
-          <router-link v-for="(option, index) in optionButtons" 
+          <router-link
+            v-for="(option, index) in optionButtons"
             :key="index"
-            :to="option.path" 
+            :to="option.path"
             class="button"
-            :class="{button_green: option.isGreen}"
+            :class="{ button_green: option.isGreen }"
+            data-aos="fade-up"
+            :data-aos-delay="option.delay"
+            data-aos-duration="1000"
           >
             {{ option.title }}
           </router-link>
@@ -47,24 +69,28 @@ export default {
           path: "/",
           title: "Программа кредитования",
           isGreen: false,
+          delay: 200,
         },
         {
           path: "/",
           title: "Как получить кредит?",
           isGreen: true,
+          delay: 400,
         },
         {
           path: "/online-credit",
           title: "Онлайн кредит",
           isGreen: false,
+          delay: 600,
         },
         {
           path: "/",
           title: "Микрокредитование молодежи",
           isGreen: true,
+          delay: 800,
         },
-      ]
-    }
+      ],
+    };
   },
   setup() {
     return {
@@ -107,6 +133,11 @@ export default {
     font-size: 36px;
     margin-bottom: 36px;
   }
+
+  @media screen and (max-width: 560px) {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
 }
 
 .subtitle {
@@ -116,6 +147,16 @@ export default {
   max-width: 900px;
   text-transform: uppercase;
   margin-bottom: 120px;
+
+  @media screen and (max-width: 560px) {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 80px;
+  }
+
+  @media screen and (max-width: 560px) {
+    margin-bottom: 50px;
+  }
 }
 
 .header-bg {
@@ -127,6 +168,7 @@ export default {
   z-index: -1;
 
   video {
+    // width: 100%;
     transform: scale(1.3) translate(0, 5%);
 
     @media screen and (max-width: 992px) {
@@ -154,6 +196,17 @@ export default {
   display: flex;
   flex-wrap: wrap;
   gap: 20px 30px;
+
+  @media screen and (max-width: 768px) {
+    width: calc(100% + 10px);
+    padding-right: 10px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  @media screen and (max-width: 560px) {
+    gap: 20px;
+  }
 }
 
 .button {
@@ -167,12 +220,25 @@ export default {
   background-color: #ed7920;
   color: #ffffff !important;
 
+  @media screen and (max-width: 768px) {
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 560px) {
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+
   &:hover {
-    opacity: 0.8;
+    background-color: #9a490a;
   }
 
   &_green {
     background-color: #09994a;
+
+    &:hover {
+      background-color: #036330;
+    }
   }
 }
 </style>

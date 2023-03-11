@@ -9,24 +9,25 @@
 </template>
 
 <script>
-import Header from "@/layout/Header.vue"
-import Footer from "@/layout/Footer.vue"
+import Header from "@/layout/Header.vue";
+import Footer from "@/layout/Footer.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Header, Footer
+    Header,
+    Footer,
   },
   data() {
     return {
       navLinks: [
         {
           path: "/about",
-          title: "О компании"
+          title: "О компании",
         },
         {
           path: "/",
-          title: "Заемщику"
+          title: "Заемщику",
         },
         {
           path: "/",
@@ -34,15 +35,12 @@ export default {
           dropDownList: [
             {
               path: "/",
-              title: "Кредитные товарищества"
-            }
-          ]
+              title: "Кредитные товарищества",
+            },
+          ],
         },
-      ]
-    }
-  }
-}
+      ],
+    };
+  },
+};
 </script>
-
-<style lang="scss">
-</style>

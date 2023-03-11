@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown-wrapper">
-    <ul class="accorion">
-      <DropDownItem 
+    <ul class="accordion">
+      <DropDownItem
         v-for="(dropDownItem, index) of dropDownList"
         :key="index"
         :dropDownItem="dropDownItem"
@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import DropDownItem from './DropDownItem.vue';
+import DropDownItem from "./DropDownItem.vue";
 
 export default {
-    props: ["dropDownList"],
-    components: { DropDownItem }
+  props: ["dropDownList"],
+  components: { DropDownItem },
 };
 </script>
 
@@ -29,7 +29,14 @@ export default {
   transform: translateY(5px);
   transition: all 0.3s ease;
 
-  ul {
+  @media screen and (max-width: 768px) {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  .accordion {
     background: #fff;
     border-radius: 8px;
     padding: 14px 0;
@@ -38,6 +45,15 @@ export default {
     transform: translateY(10px);
     transition: all 0.3s ease;
     margin-top: 25px;
+
+    @media screen and (max-width: 768px) {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+      transform: none;
+      transition: all 0.3s ease;
+    }
   }
 
   li a {
@@ -47,6 +63,12 @@ export default {
 
     &:hover {
       color: #000;
+    }
+
+    @media screen and (max-width: 768px) {
+      height: 21px;
+      padding: 0;
+      color: #fff;
     }
   }
 }

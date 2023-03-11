@@ -20,9 +20,9 @@ export function useCalculator() {
   const total = ref(0)
   const overpayment = ref(0)
   const form = reactive({
-    sum: 0,
-    percent: 0,
-    month: 0
+    sum: null,
+    percent: 15,
+    month: 48
   })
 
   const submit = () => {

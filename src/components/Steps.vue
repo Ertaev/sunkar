@@ -1,17 +1,23 @@
 <template>
   <div class="steps">
     <div class="container">
-      <h2> КАК МЫ РАБОТАЕМ? </h2>
+      <h2 data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+        КАК МЫ РАБОТАЕМ?
+      </h2>
 
       <div class="steps-list">
-        <div 
+        <div
           v-for="step in steps"
+          :key="step.index"
           class="steps-item"
+          data-aos="fade-up"
+          :data-aos-delay="step.delay"
+          data-aos-duration="1000"
         >
           <p class="subtitle">шаг {{ step.index }}</p>
-          <h4 class="title"> {{ step.title }} </h4>
+          <h4 class="title">{{ step.title }}</h4>
 
-          <p class="desc"> {{ step.desc }} </p>
+          <p class="desc">{{ step.desc }}</p>
         </div>
       </div>
     </div>
@@ -27,21 +33,24 @@ export default {
           index: 1,
           title: "ЗАЯВКА",
           desc: "Вы оставляете заявку на кредитование с суммой открываемой КЛ",
+          delay: 200,
         },
         {
           index: 2,
           title: "СБОР ДОКУМЕНТОВ",
           desc: "Собираете весь перечень необходимой документации.",
+          delay: 400,
         },
         {
           index: 3,
           title: "РЕГИСТРАЦИИ ДОГОВОРОВ В УПОЛНОМОЧЕННОМ ОРГАНЕ",
           desc: "Регистрируйте договора залога.",
+          delay: 600,
         },
-      ]
-    }
-  }
-}
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss">
@@ -70,7 +79,7 @@ export default {
     flex-direction: column;
     padding: 20px 16px 20px 90px;
     cursor: default;
-    
+
     &:hover {
       box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
     }
@@ -113,6 +122,14 @@ export default {
       font-weight: 700;
       text-transform: uppercase;
       color: #000;
+
+      @media screen and (max-width: 560px) {
+        font-size: 18px;
+      }
+
+      @media screen and (max-width: 480px) {
+        font-size: 16px;
+      }
     }
 
     .desc {

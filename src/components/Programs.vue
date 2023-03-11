@@ -1,19 +1,22 @@
 <template>
   <div class="programs">
     <div class="container">
-      <h2>
+      <h2 data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
         ПРОГРАММЫ КРЕДИТОВАНИЯ
       </h2>
 
       <div class="programs-list">
-        <router-link 
+        <router-link
           v-for="program in programs"
           :key="program.id"
-          :to="program.path" 
+          :to="program.path"
           class="programs-item"
+          data-aos="fade-up"
+          :data-aos-delay="program.delay"
+          data-aos-duration="1000"
         >
           <div class="programs-img">
-            <img :src="program.img" :alt="program.title">
+            <img :src="program.img" :alt="program.title" />
           </div>
 
           <p class="programs-title">
@@ -34,24 +37,27 @@ export default {
           id: 1,
           path: "/",
           title: "КЕҢ ДАЛА",
-          img: "/img/dala.1ea150e2.png",
+          img: require("@/assets/images/dala.png"),
+          delay: 200,
         },
         {
           id: 2,
           path: "/",
           title: "агробизнес",
-          img: "/img/agro.87b83c4b.png",
+          img: require("@/assets/images/agro.png"),
+          delay: 400,
         },
         {
           id: 3,
           path: "/",
           title: "Іскер",
-          img: "/img/isker.8c34c7fb.png",
+          img: require("@/assets/images/isker.png"),
+          delay: 600,
         },
-      ]
-    }
-  }
-}
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss">
@@ -101,7 +107,7 @@ export default {
     img {
       height: 100%;
       object-fit: contain;
-      transition: .5s ease;
+      transition: 0.5s ease;
     }
   }
 
