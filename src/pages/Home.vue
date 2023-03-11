@@ -7,8 +7,6 @@
     <About />
 
     <Steps />
-
-    <Contacts />
   </div>
 </template>
 
@@ -17,7 +15,6 @@ import Main from "@/components/Main.vue";
 import Programs from "@/components/Programs.vue";
 import About from "@/components/About.vue";
 import Steps from "@/components/Steps.vue";
-import Contacts from "@/components/Contacts.vue";
 
 export default {
   components: {
@@ -25,7 +22,6 @@ export default {
     Programs,
     Steps,
     About,
-    Contacts,
   },
 };
 </script>

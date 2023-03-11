@@ -5,17 +5,21 @@
     <router-view />
   </main>
 
+  <Contacts />
+
   <Footer :navLinks="navLinks" />
 </template>
 
 <script>
 import Header from "@/layout/Header.vue";
+import Contacts from "@/components/Contacts.vue";
 import Footer from "@/layout/Footer.vue";
 
 export default {
   name: "App",
   components: {
     Header,
+    Contacts,
     Footer,
   },
   data() {

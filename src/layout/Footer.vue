@@ -88,27 +88,23 @@ export default {
     align-items: center;
     color: #fff;
 
-    &:first-child {
-      margin-bottom: 20px;
-    }
+    &:last-child {
+      margin-top: 20px;
 
-    .burger {
-      display: none;
-    }
-
-    @media screen and (max-width: 767px) {
-      &:last-child {
+      @media screen and (max-width: 767px) {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
       }
-    }
 
-    @media screen and (max-width: 560px) {
-      &:last-child {
+      @media screen and (max-width: 560px) {
         flex-direction: column;
       }
     }
+  }
+
+  .burger {
+    display: none;
   }
 
   .dropdown-wrapper {

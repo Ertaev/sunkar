@@ -50,7 +50,7 @@ export default {
         },
         {
           id: 2,
-          title: "mymail@mail.ru",
+          title: "kt-sunkar@mail.ru",
           path: "/",
           icon: "fa-solid fa-envelope",
         },

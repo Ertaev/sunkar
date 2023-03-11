@@ -1,6 +1,6 @@
 <template>
-  <div class="header-section">
-    <div class="header-bg">
+  <MainSlot>
+    <template #header-bg>
       <video
         autoplay=""
         muted=""
@@ -8,65 +8,58 @@
         playsinline=""
         poster="@/assets/images/7.jpg"
       >
-        <!-- <source src="@/assets/video/video-bg.mp4" type="video/mp4;"> -->
         <source src="@/assets/video/abg.mp4" type="video/mp4;" />
       </video>
-    </div>
+    </template>
 
-    <div class="container">
-      <div class="header-content">
-        <h1
-          class="title"
-          data-aos="fade-right"
-          data-aos-delay="200"
+    <template #title>
+      Развиваем агробизнес вместе!
+    </template>
+
+    <template #subtitle>
+      <p class="subtitle">
+        содействие устойчивому развитию агропромышленного комплекса Республики
+        Казахстан путем формирования доступной и эффективной системы
+        финансирования
+      </p>
+    </template>
+
+    <template #default>
+      <div class="options">
+        <router-link
+          v-for="(option, index) in optionButtons"
+          :key="index"
+          :to="option.path"
+          class="button"
+          :class="{ button_green: option.isGreen }"
+          data-aos="fade-up"
+          :data-aos-delay="option.delay"
           data-aos-duration="1000"
         >
-          Развиваем агробизнес вместе!
-        </h1>
-        <p
-          class="subtitle"
-          data-aos="fade-right"
-          data-aos-delay="200"
-          data-aos-duration="1000"
-        >
-          содействие устойчивому развитию агропромышленного комплекса Республики
-          Казахстан путем формирования доступной и эффективной системы
-          финансирования
-        </p>
-
-        <div class="options">
-          <router-link
-            v-for="(option, index) in optionButtons"
-            :key="index"
-            :to="option.path"
-            class="button"
-            :class="{ button_green: option.isGreen }"
-            data-aos="fade-up"
-            :data-aos-delay="option.delay"
-            data-aos-duration="1000"
-          >
-            {{ option.title }}
-          </router-link>
-        </div>
+          {{ option.title }}
+        </router-link>
       </div>
-    </div>
-  </div>
+    </template>
+
+ 	</MainSlot>
 </template>
 
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay } from "swiper";
+import MainSlot from '@/components/MainSlot.vue'
 
 export default {
   components: {
     Swiper,
     SwiperSlide,
+    MainSlot
   },
   data() {
     return {
       optionButtons: [
         {
-          path: "/",
+          path: "/programs",
           title: "Программа кредитования",
           isGreen: false,
           delay: 200,
@@ -168,7 +161,6 @@ export default {
   z-index: -1;
 
   video {
-    // width: 100%;
     transform: scale(1.3) translate(0, 5%);
 
     @media screen and (max-width: 992px) {

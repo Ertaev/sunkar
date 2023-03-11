@@ -1,10 +1,12 @@
 <template>
-  <div class="programs">
-    <div class="container">
-      <h2 data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
-        ПРОГРАММЫ КРЕДИТОВАНИЯ
-      </h2>
+  <MainSlot>
+    <template #header-bg>
+      <img src="@/assets/images/bg.png" alt="bg" />
+    </template>
 
+    <template #title> ПРОГРАММЫ КРЕДИТОВАНИЯ </template>
+
+    <template #default>
       <div class="programs-list">
         <router-link
           v-for="program in programs"
@@ -24,12 +26,15 @@
           </p>
         </router-link>
       </div>
-    </div>
-  </div>
+    </template>
+  </MainSlot>
 </template>
 
 <script>
+import MainSlot from "@/components/MainSlot.vue"
+
 export default {
+  components: { MainSlot },
   data() {
     return {
       programs: [
@@ -61,61 +66,31 @@ export default {
 </script>
 
 <style lang="scss">
-.programs {
-  padding: 60px 0;
-  background: #f8f7f5;
-
-  &-list {
-    display: flex;
-    gap: 30px;
+.header-section {
+  &.programs {
+    background: center / cover no-repeat url(@/assets/images/2.png) !important;
 
     @media screen and (max-width: 992px) {
-      flex-direction: column;
+      height: auto;
+      padding-bottom: 60px;
     }
 
-    @media screen and (max-width: 768px) {
-      gap: 20px;
+    .header-bg {
+      z-index: 0;
     }
   }
 
-  &-item {
-    padding: 25px;
+  .desc {
     display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    transition: 0.5s ease;
-    border-radius: 5px;
-    width: 100%;
-    color: #141414;
-    gap: 24px;
+    flex-direction: column;
+    gap: 20px;
+    text-align: justify;
 
-    &:hover {
-      background-color: #09994a;
-      box-shadow: 0 0 70px 2px rgb(9 153 74 / 50%);
+    p {
+      font-size: 18px;
+      line-height: 22px;
       color: #fff;
-
-      img {
-        filter: invert(1);
-      }
     }
-  }
-
-  &-img {
-    width: 40px;
-    height: 40px;
-
-    img {
-      height: 100%;
-      object-fit: contain;
-      transition: 0.5s ease;
-    }
-  }
-
-  &-title {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.2em;
-    text-transform: uppercase;
   }
 }
 </style>

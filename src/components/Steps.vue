@@ -14,6 +14,7 @@
           :data-aos-delay="step.delay"
           data-aos-duration="1000"
         >
+          <img :src=step.image :alt=step.title />
           <p class="subtitle">шаг {{ step.index }}</p>
           <h4 class="title">{{ step.title }}</h4>
 
@@ -34,18 +35,21 @@ export default {
           title: "ЗАЯВКА",
           desc: "Вы оставляете заявку на кредитование с суммой открываемой КЛ",
           delay: 200,
+          image: require("@/assets/images/step-1.svg"),
         },
         {
           index: 2,
           title: "СБОР ДОКУМЕНТОВ",
           desc: "Собираете весь перечень необходимой документации.",
           delay: 400,
+          image: require("@/assets/images/step-2.svg"),
         },
         {
           index: 3,
           title: "РЕГИСТРАЦИИ ДОГОВОРОВ В УПОЛНОМОЧЕННОМ ОРГАНЕ",
           desc: "Регистрируйте договора залога.",
           delay: 600,
+          image: require("@/assets/images/step-3.svg"),
         },
       ],
     };
@@ -84,26 +88,16 @@ export default {
       box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
     }
 
-    &::before {
-      content: "";
+    img {
       position: absolute;
-      top: 30px;
-      left: 0;
-      width: 80px;
-      height: 80px;
-      background: center no-repeat url(@/assets/images/step-1.svg);
+      top: 50px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
 
       @media screen and (max-width: 992px) {
-        top: 20px;
+        top: 40px;
       }
-    }
-
-    &:nth-child(2)::before {
-      background: center no-repeat url(@/assets/images/step-2.svg);
-    }
-
-    &:nth-child(3)::before {
-      background: center no-repeat url(@/assets/images/step-3.svg);
     }
 
     .subtitle {
