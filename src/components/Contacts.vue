@@ -78,10 +78,10 @@ export default {
 
   .additional-info {
     display: flex;
-    padding-top: 60px;
     gap: 60px;
 
     @media screen and (max-width: 992px) {
+      padding-top: 60px;
       flex-direction: column;
     }
   }
