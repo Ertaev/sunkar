@@ -7,6 +7,7 @@
         loop=""
         playsinline=""
         poster="@/assets/images/7.jpg"
+        lazy-load
       >
         <source src="@/assets/video/video.mp4" type="video/mp4;" />
       </video>
