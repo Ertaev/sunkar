@@ -8,7 +8,7 @@
         playsinline=""
         poster="@/assets/images/7.jpg"
       >
-        <source src="@/assets/video/abg.mp4" type="video/mp4;" />
+        <source src="@/assets/video/video.mp4" type="video/mp4;" />
       </video>
     </template>
 
