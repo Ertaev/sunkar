@@ -9,7 +9,7 @@
             data-aos-delay="200"
             data-aos-duration="1000"
           >
-            Кулькулятор
+            Калькулятор
           </h1>
 
           <div class="calc-wrapper">
