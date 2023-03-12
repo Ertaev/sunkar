@@ -30,7 +30,6 @@ export default {
     
     onMounted(() => {
       currentPath.value = window.location.pathname.substring(1)
-      console.log(currentPath.value);
     });
 
     return {

@@ -101,8 +101,6 @@ export default {
   }
 
   &__search {
-    position: relative;
-    z-index: 11;
     color: #fff !important;
     margin-left: auto;
 
@@ -112,8 +110,6 @@ export default {
   }
 
   &__lang {
-    position: relative;
-    z-index: 11;
     cursor: pointer;
 
     &:hover {
@@ -145,7 +141,8 @@ export default {
   }
 
   &__close {
-    position: relative;
+    position: fixed;
+    right: 10px;
     z-index: 11;
     border: none;
 
