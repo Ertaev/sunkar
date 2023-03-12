@@ -34,6 +34,7 @@ export default {
     opacity: 1;
     visibility: visible;
     top: 0;
+    transform: inherit;
   }
 
   .accordion {
@@ -63,6 +64,10 @@ export default {
 
     &:hover {
       color: #000;
+
+      @media screen and (max-width: 768px) {
+        color: #fff;
+      }
     }
 
     @media screen and (max-width: 768px) {

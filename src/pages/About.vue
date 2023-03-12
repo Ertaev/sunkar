@@ -52,6 +52,8 @@ export default {
 
   @media screen and (max-width: 992px) {
     height: auto;
+    position: relative;
+    height: 100%;
     padding-bottom: 60px;
   }
 }

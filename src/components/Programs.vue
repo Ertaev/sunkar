@@ -62,6 +62,7 @@ export default {
 
 <style lang="scss">
 .programs {
+  position: relative;
   padding: 60px 0;
   background: #f8f7f5;
 
