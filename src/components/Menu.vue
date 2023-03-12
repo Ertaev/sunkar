@@ -95,7 +95,6 @@ export default {
       background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(25px);
       transition: all 0.5s ease;
-      overflow: auto;
       z-index: 10;
     }
   }

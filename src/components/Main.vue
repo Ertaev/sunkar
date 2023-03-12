@@ -98,7 +98,7 @@ export default {
   position: relative;
   height: 100vh;
 
-  @media (max-height: 540px) {
+  @media (max-height: 600px) {
     position: relative;
     height: 100%;
     padding-bottom: 100px;
@@ -201,6 +201,7 @@ export default {
     padding-right: 10px;
     flex-wrap: nowrap;
     overflow-x: auto;
+    overflow-y: hidden;
   }
 
   @media screen and (max-width: 560px) {
