@@ -96,6 +96,12 @@ export default {
 <style lang="scss">
 .header-section {
   height: 100vh;
+
+  @media (max-height: 540px) {
+    position: relative;
+    height: 100%;
+    padding-bottom: 100px;
+  }
 }
 
 .swiper {

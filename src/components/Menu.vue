@@ -43,6 +43,7 @@ export default {
     openModal() {
       this.isActive = !this.isActive;
       this.isActive ? document.querySelector("html").style.overflow = "hidden" : document.querySelector("html").style.overflow = ""
+      this.isActive ? document.querySelector("body").style.overflow = "hidden" : document.querySelector("body").style.overflow = ""
     },
   },
 };
@@ -94,6 +95,7 @@ export default {
 
   &__open {
     @media screen and (max-width: 768px) {
+      position: fixed;
       top: 0;
     }
   }
