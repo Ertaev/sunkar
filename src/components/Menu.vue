@@ -4,7 +4,7 @@
       <p>5353</p>
     </div>
 
-    <ul class="menu__list" :class="{ menu__open: isActive }">
+    <ul class="menu__list" :class="{ menu__open: showMenu }">
       <MenuItem
         v-for="(navLink, index) of navLinks"
         :key="index"
@@ -22,7 +22,7 @@
 
     <div
       class="burger"
-      :class="{ burger__close: isActive }"
+      :class="{ burger__close: showMenu }"
       @click="openModal"
     ></div>
   </nav>
@@ -36,16 +36,23 @@ export default {
   components: { MenuItem },
   data() {
     return {
-      isActive: false,
+      showMenu: false,
     };
   },
   methods: {
     openModal() {
-      this.isActive = !this.isActive;
-      this.isActive ? document.querySelector("body").style.overflow = "hidden" : document.querySelector("body").style.overflow = ""
-      this.isActive ? document.querySelector("html").style.overflow = "hidden" : document.querySelector("html").style.overflow = ""
+      this.showMenu = !this.showMenu;
+      this.showMenu ? document.querySelector("body").style.overflowY = "hidden" : document.querySelector("body").style.overflowY = ""
+      this.showMenu ? document.querySelector("html").style.overflowY = "hidden" : document.querySelector("html").style.overflowY = ""
     },
   },
+  watch: {
+    '$route' () {
+      this.showMenu = false
+      document.querySelector("body").style.overflowY = ""
+      document.querySelector("html").style.overflowY = ""
+    }
+  }
 };
 </script>
 

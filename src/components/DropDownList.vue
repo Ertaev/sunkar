@@ -66,7 +66,7 @@ export default {
       color: #000;
 
       @media screen and (max-width: 768px) {
-        color: #fff;
+        color: #cecece;
       }
     }
 
