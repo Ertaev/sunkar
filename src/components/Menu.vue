@@ -42,8 +42,8 @@ export default {
   methods: {
     openModal() {
       this.isActive = !this.isActive;
-      this.isActive ? document.querySelector("html").style.overflow = "hidden" : document.querySelector("html").style.overflow = ""
       this.isActive ? document.querySelector("body").style.overflow = "hidden" : document.querySelector("body").style.overflow = ""
+      this.isActive ? document.querySelector("html").style.overflow = "hidden" : document.querySelector("html").style.overflow = ""
     },
   },
 };

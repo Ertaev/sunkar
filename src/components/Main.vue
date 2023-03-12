@@ -95,6 +95,7 @@ export default {
 
 <style lang="scss">
 .header-section {
+  position: relative;
   height: 100vh;
 
   @media (max-height: 540px) {
